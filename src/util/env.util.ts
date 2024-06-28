@@ -22,7 +22,8 @@ const envSchema = object({
     }), */
     PORT: coerce.number({
         message: "Invalid Port!",
-    }).min(0).max(65535)
+    }).min(0).max(65535),
+    MONGO_URL: string({message: "Mongo URL required!"}).url({message: "Invalid Mongo URL!"})
 });
 
 export default envSchema.parse(process.env);
